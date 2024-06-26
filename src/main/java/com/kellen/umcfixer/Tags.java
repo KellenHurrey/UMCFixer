@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.kellen.umcfixer;
 
 // Use this class for Strings only. Do not import any classes here. It will lead to issues with Mixins if in use!
 

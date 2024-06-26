@@ -1,5 +1,6 @@
 // Add any additional repositories for your dependencies here
 
 repositories {
-
+    mavenCentral()
+    maven { url = "https://teamopenindustry.cc/maven" }
 }
