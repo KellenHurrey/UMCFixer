@@ -3,4 +3,5 @@
 dependencies {
     implementation("cam72cam.immersiverailroading:ImmersiveRailroading:1.7.10-forge-1.10.0")
     implementation("cam72cam.universalmodcore:UniversalModCore:1.7.10-forge-1.2.1")
+    implementation("trackapi:TrackAPI:1.7.10-forge-1.2")
 }
