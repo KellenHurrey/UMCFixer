@@ -17,7 +17,8 @@ public enum Mixin {
 
     // Replace with your own mixins:
     // You may also require multiple mods to be loaded if your mixin requires both
-    ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING);
+    ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING),
+    GlobalRenderMixin("umc.GlobalRenderMixin", Side.CLIENT, UNIVERSALMODCORE);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;

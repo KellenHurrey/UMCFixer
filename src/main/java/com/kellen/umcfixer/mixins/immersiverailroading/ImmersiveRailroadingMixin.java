@@ -44,8 +44,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.function.Function;
 
 @Mixin(value = ImmersiveRailroading.class, remap = false)
-public class ImmersiveRailroadingMixin{
-
+public abstract class ImmersiveRailroadingMixin{
+// GlobalRender
     /**
      * @author kellen
      * @reason to fix a crash
