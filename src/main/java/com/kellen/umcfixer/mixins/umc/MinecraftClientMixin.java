@@ -28,12 +28,12 @@ public class MinecraftClientMixin {
                 if (internal.worldObj == null || World.get(internal.worldObj) == null || internal.getUniqueID() == null || World.get(internal.worldObj).getEntity(internal) == null){
                     System.out.println("here");
                     cir.setReturnValue(null);
+                    return;
                 }
                 playerCache = World.get(internal.worldObj).getEntity(internal).asPlayer();
             }
             System.out.println("last");
             cir.setReturnValue(playerCache);
         }
-        cir.setReturnValue(null);
     }
 }
