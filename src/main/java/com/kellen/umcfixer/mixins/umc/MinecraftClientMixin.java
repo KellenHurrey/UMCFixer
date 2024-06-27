@@ -8,6 +8,9 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = MinecraftClient.class, remap = false)
 public class MinecraftClientMixin {
@@ -15,19 +18,10 @@ public class MinecraftClientMixin {
     @Shadow
     private static Player playerCache;
 
-    @Overwrite
-    public static Player getPlayer() {
-        EntityPlayerSP internal = Minecraft.getMinecraft().thePlayer;
-        if (internal == null) {
-            throw new RuntimeException("Called to get the player before minecraft has actually started!");
-        } else {
-            if (playerCache == null || internal != playerCache.internal) {
-                playerCache = World.get(internal.worldObj).getEntity(internal).asPlayer();
-            }
-            if (playerCache == null){
-                return new Player(Minecraft.getMinecraft().thePlayer);
-            }
-            return playerCache;
+    @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("RETURN"))
+    private static void getPlayer(CallbackInfoReturnable<Player> cir) {
+        if (playerCache == null){
+            cir.setReturnValue(new Player(Minecraft.getMinecraft().thePlayer));
         }
     }
 }
