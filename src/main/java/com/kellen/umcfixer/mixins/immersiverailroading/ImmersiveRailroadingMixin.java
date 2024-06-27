@@ -4,6 +4,7 @@ import cam72cam.immersiverailroading.ImmersiveRailroading;
 import cam72cam.mod.MinecraftClient;
 import cam72cam.mod.render.opengl.RenderState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
