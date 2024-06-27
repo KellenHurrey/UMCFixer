@@ -19,9 +19,7 @@ public class MinecraftClientMixin {
 
     @Inject(method = "Lcam72cam/mod/MinecraftClient;isReady()Z", at = @At("HEAD"), cancellable = true)
     private static void isReady(CallbackInfoReturnable<Boolean> cir){
-        if (MinecraftClient.getPlayer() == null){
-            cir.setReturnValue(false);
-        }
+        cir.setReturnValue(Minecraft.getMinecraft().thePlayer != null && Minecraft.getMinecraft().theWorld != null && MinecraftClient.getPlayer() != null);
     }
 
     @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("HEAD"), cancellable = true)
