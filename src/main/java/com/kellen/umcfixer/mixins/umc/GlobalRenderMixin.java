@@ -13,7 +13,7 @@ abstract class GlobalRenderMixin{
 
     @Inject(method = "lambda$registerItemMouseover$4(Lcam72cam/mod/item/CustomItem;Lcam72cam/mod/render/GlobalRender$MouseoverEvent;Ljava/lang/Float;)V", at = @At("HEAD"), cancellable = true)
     private static void lambda$registerItemMouseover$4(CustomItem item, GlobalRender.MouseoverEvent fn, Float partialTicks, CallbackInfo ci){
-        if (MinecraftClient.getPlayer() == null){
+        if (MinecraftClient.getBlockMouseOver() != null && MinecraftClient.getPlayer() == null){
             ci.cancel();
         }
     }
