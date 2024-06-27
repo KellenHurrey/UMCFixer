@@ -13,7 +13,7 @@ abstract class ImmersiveRailroadingMixin{
 
     @Inject(method = "lambda$clientEvent$3(Lcam72cam/mod/render/opengl/RenderState;F)V", at = @At("HEAD"), cancellable = true)
     private static void lambda$clientEvent$3(RenderState state, float pt, CallbackInfo ci){
-        if (MinecraftClient.getPlayer() == null){
+        if (!MinecraftClient.isReady() || MinecraftClient.getPlayer() == null){
             ci.cancel();
         }
     }

@@ -19,7 +19,7 @@ public enum Mixin {
 //    ItemEditableBookMixin("minecraft.ItemEditableBookMixin", Side.BOTH, VANILLA),
     // You may also require multiple mods to be loaded if your mixin requires both
 //    GT_Block_Ores_AbstractMixin("gregtech.GT_Block_Ores_AbstractMixin", GREGTECH, VANILLA);
-    ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.BOTH, IMMERSIVERAILROADING);
+    ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING);
 //    GlobalRenderMixin("umc.GlobalRenderMixin", Side.BOTH, UNIVERSALMODCORE);
 
     public final String mixinClass;

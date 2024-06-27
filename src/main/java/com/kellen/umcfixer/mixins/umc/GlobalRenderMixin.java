@@ -17,6 +17,7 @@ abstract class GlobalRenderMixin{
         if (MinecraftClient.getBlockMouseOver() != null && MinecraftClient.getPlayer() == null){
             ci.cancel();
 //            ClientEvents
+//            MinecraftClient
         }
     }
 }
