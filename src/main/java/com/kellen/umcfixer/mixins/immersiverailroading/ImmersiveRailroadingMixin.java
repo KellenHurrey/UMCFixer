@@ -34,6 +34,7 @@ abstract class ImmersiveRailroadingMixin{
         ci.cancel();
     }
 
+    /*
     @Inject(method = "lambda$clientEvent$4(Lcam72cam/mod/event/ClientEvents$MouseGuiEvent;)Ljava/lang/Boolean;", at = @At("HEAD"), cancellable = true)
     private static void lambda$clientEvent$4(ClientEvents.MouseGuiEvent evt, CallbackInfoReturnable<Boolean> cir){
         if (!MinecraftClient.isReady() || MinecraftClient.getPlayer() == null) {
@@ -48,5 +49,7 @@ abstract class ImmersiveRailroadingMixin{
             }
         }
     }
+
+     */
 
 }
