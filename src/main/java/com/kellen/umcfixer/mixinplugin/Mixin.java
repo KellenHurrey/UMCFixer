@@ -46,5 +46,5 @@ public enum Mixin {
 enum Side {
     BOTH,
     CLIENT,
-    SERVER;
+    SERVER
 }
