@@ -18,10 +18,20 @@ public class MinecraftClientMixin {
     @Shadow
     private static Player playerCache;
 
-    @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("HEAD"), cancellable = true)
     private static void getPlayer(CallbackInfoReturnable<Player> cir) {
-        if (playerCache == null){
-            cir.setReturnValue(new Player(Minecraft.getMinecraft().thePlayer));
+        EntityPlayerSP internal = Minecraft.getMinecraft().thePlayer;
+        if (internal == null) {
+            throw new RuntimeException("Called to get the player before minecraft has actually started!");
+        } else {
+            if (playerCache == null || internal != playerCache.internal) {
+                if (internal.worldObj == null || World.get(internal.worldObj) == null || internal.getUniqueID() == null){
+                    cir.setReturnValue(null);
+                }
+                playerCache = World.get(internal.worldObj).getEntity(internal).asPlayer();
+            }
+
+            cir.setReturnValue(playerCache);
         }
     }
 }
