@@ -19,6 +19,7 @@ public class MinecraftClientMixin {
 
     @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("HEAD"), cancellable = true)
     private static void getPlayer(CallbackInfoReturnable<Player> cir) {
+        System.out.println("first");
         EntityPlayerSP internal = Minecraft.getMinecraft().thePlayer;
         if (internal == null) {
             throw new RuntimeException("Called to get the player before minecraft has actually started!");
@@ -30,8 +31,9 @@ public class MinecraftClientMixin {
                 }
                 playerCache = World.get(internal.worldObj).getEntity(internal).asPlayer();
             }
-
+            System.out.println("last");
             cir.setReturnValue(playerCache);
         }
+        cir.setReturnValue(null);
     }
 }
