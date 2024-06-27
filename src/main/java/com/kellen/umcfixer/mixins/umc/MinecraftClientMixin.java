@@ -24,7 +24,8 @@ public class MinecraftClientMixin {
             throw new RuntimeException("Called to get the player before minecraft has actually started!");
         } else {
             if (playerCache == null || internal != playerCache.internal) {
-                if (internal.worldObj == null || World.get(internal.worldObj) == null || internal.getUniqueID() == null){
+                if (internal.worldObj == null || World.get(internal.worldObj) == null || internal.getUniqueID() == null || World.get(internal.worldObj).getEntity(internal) == null){
+                    System.out.println("here");
                     cir.setReturnValue(null);
                 }
                 playerCache = World.get(internal.worldObj).getEntity(internal).asPlayer();
