@@ -21,7 +21,7 @@ public enum Mixin {
 //    GT_Block_Ores_AbstractMixin("gregtech.GT_Block_Ores_AbstractMixin", GREGTECH, VANILLA);
     ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING),
 //    GlobalRenderMixin("umc.GlobalRenderMixin", Side.BOTH, UNIVERSALMODCORE);
-    MinecraftClientMixin("umc.MinecraftClientMixin", Side.CLIENT, UNIVERSALMODCORE);
+    MinecraftClientMixin("umc.MinecraftClientMixin", Side.CLIENT, UNIVERSALMODCORE, VANILLA);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;
