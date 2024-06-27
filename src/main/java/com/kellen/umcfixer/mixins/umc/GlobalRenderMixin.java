@@ -1,6 +1,7 @@
 package com.kellen.umcfixer.mixins.umc;
 
 import cam72cam.mod.MinecraftClient;
+import cam72cam.mod.event.ClientEvents;
 import cam72cam.mod.item.CustomItem;
 import cam72cam.mod.render.GlobalRender;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +16,7 @@ abstract class GlobalRenderMixin{
     private static void lambda$registerItemMouseover$4(CustomItem item, GlobalRender.MouseoverEvent fn, Float partialTicks, CallbackInfo ci){
         if (MinecraftClient.getBlockMouseOver() != null && MinecraftClient.getPlayer() == null){
             ci.cancel();
+            ClientEvents
         }
     }
 }
