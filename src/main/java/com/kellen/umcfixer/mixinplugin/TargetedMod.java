@@ -14,8 +14,8 @@ public enum TargetedMod {
 
     // Replace with your injected mods here, but always keep VANILLA:
     VANILLA("Minecraft", "unused", true),
-    IMMERSIVERAILROADING("ImmersiveRailroading", "immersiverailroading", true),
-    UNIVERSALMODCORE("UniversalModCore", "umc", true);
+    IMMERSIVERAILROADING("ImmersiveRailroading", "ImmersiveRailroading", true),
+    UNIVERSALMODCORE("UniversalModCore", "UniversalModCore", true);
 
     public final String modName;
     public final String jarNamePrefixLowercase;
