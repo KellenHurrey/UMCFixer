@@ -20,8 +20,8 @@ public enum Mixin {
     // You may also require multiple mods to be loaded if your mixin requires both
 //    GT_Block_Ores_AbstractMixin("gregtech.GT_Block_Ores_AbstractMixin", GREGTECH, VANILLA);
     MinecraftClientMixin("umc.MinecraftClientMixin", Side.CLIENT, UNIVERSALMODCORE, VANILLA),
-    ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING);
-//    GlobalRenderMixin("umc.GlobalRenderMixin", Side.BOTH, UNIVERSALMODCORE);;
+    ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING),
+    GlobalRenderMixin("umc.GlobalRenderMixin", Side.BOTH, UNIVERSALMODCORE);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;
