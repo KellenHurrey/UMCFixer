@@ -18,7 +18,7 @@ public class MinecraftClientMixin {
     @Shadow
     private static Player playerCache;
 
-    @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("RETURN"))
+    @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("RETURN"), cancellable = true)
     private static void getPlayer(CallbackInfoReturnable<Player> cir) {
         if (playerCache == null){
             cir.setReturnValue(new Player(Minecraft.getMinecraft().thePlayer));
