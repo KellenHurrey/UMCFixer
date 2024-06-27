@@ -1,6 +1,7 @@
 package com.kellen.umcfixer.mixins.umc;
 
 import cam72cam.mod.MinecraftClient;
+import cam72cam.mod.entity.Entity;
 import cam72cam.mod.entity.Player;
 import cam72cam.mod.world.World;
 import net.minecraft.client.Minecraft;
@@ -38,6 +39,14 @@ public class MinecraftClientMixin {
                 playerCache = World.get(internal.worldObj).getEntity(internal).asPlayer();
             }
             cir.setReturnValue(playerCache);
+        }
+    }
+
+    // Fix a NullPointerException while looking at an entity
+    @Inject(method = "Lcam72cam/mod/MinecraftClient;getEntityMouseOver()Lcam72cam/mod/entity/Entity;", at = @At("HEAD"), cancellable = true)
+    private static void getEntityMouseOver(CallbackInfoReturnable<Entity> cir){
+        if (MinecraftClient.getPlayer() == null){
+            cir.setReturnValue(null);
         }
     }
 }
