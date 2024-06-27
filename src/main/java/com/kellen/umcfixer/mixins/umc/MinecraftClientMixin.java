@@ -17,27 +17,26 @@ public class MinecraftClientMixin {
     @Shadow
     private static Player playerCache;
 
-    @Inject(method = "Lcam72cam/mod/MinecraftClient;isReady()Z", at = @At("HEAD"), cancellable = true)
+    // Add getPlayer not null as part of being ready
+    @Inject(method = "isReady()Z", at = @At("HEAD"), cancellable = true)
     private static void isReady(CallbackInfoReturnable<Boolean> cir){
         cir.setReturnValue(Minecraft.getMinecraft().thePlayer != null && Minecraft.getMinecraft().theWorld != null && MinecraftClient.getPlayer() != null);
     }
 
-    @Inject(method = "Lcam72cam/mod/MinecraftClient;getPlayer()Lcam72cam/mod/entity/Player;", at = @At("HEAD"), cancellable = true)
+    // Handle the possibility of a null world (happens when going through dimensions)
+    @Inject(method = "getPlayer()Lcam72cam/mod/entity/Player;", at = @At("HEAD"), cancellable = true)
     private static void getPlayer(CallbackInfoReturnable<Player> cir) {
-        System.out.println("first");
         EntityPlayerSP internal = Minecraft.getMinecraft().thePlayer;
         if (internal == null) {
             throw new RuntimeException("Called to get the player before minecraft has actually started!");
         } else {
             if (playerCache == null || internal != playerCache.internal) {
                 if (internal.worldObj == null || World.get(internal.worldObj) == null || internal.getUniqueID() == null || World.get(internal.worldObj).getEntity(internal) == null){
-                    System.out.println("here");
                     cir.setReturnValue(null);
                     return;
                 }
                 playerCache = World.get(internal.worldObj).getEntity(internal).asPlayer();
             }
-            System.out.println("last");
             cir.setReturnValue(playerCache);
         }
     }

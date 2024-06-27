@@ -15,10 +15,6 @@ public enum Mixin {
     // Exception: Tags.java, as long as it is used for Strings only!
     //
 
-    // Replace with your own mixins:
-//    ItemEditableBookMixin("minecraft.ItemEditableBookMixin", Side.BOTH, VANILLA),
-    // You may also require multiple mods to be loaded if your mixin requires both
-//    GT_Block_Ores_AbstractMixin("gregtech.GT_Block_Ores_AbstractMixin", GREGTECH, VANILLA);
     MinecraftClientMixin("umc.MinecraftClientMixin", Side.CLIENT, UNIVERSALMODCORE, VANILLA),
     ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING),
     GlobalRenderMixin("umc.GlobalRenderMixin", Side.BOTH, UNIVERSALMODCORE);
