@@ -16,7 +16,7 @@ abstract class GlobalRenderMixin{
     private static void lambda$registerItemMouseover$4(CustomItem item, GlobalRender.MouseoverEvent fn, Float partialTicks, CallbackInfo ci){
         if (MinecraftClient.getBlockMouseOver() != null && MinecraftClient.getPlayer() == null){
             ci.cancel();
-            ClientEvents
+//            ClientEvents
         }
     }
 }
