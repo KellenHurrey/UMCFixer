@@ -17,7 +17,8 @@ public enum Mixin {
 
     MinecraftClientMixin("umc.MinecraftClientMixin", Side.CLIENT, UNIVERSALMODCORE, VANILLA),
     ImmersiveRailroadingMixin("immersiverailroading.ImmersiveRailroadingMixin", Side.CLIENT, IMMERSIVERAILROADING),
-    GlobalRenderMixin("umc.GlobalRenderMixin", Side.BOTH, UNIVERSALMODCORE);
+    GlobalRenderMixin("umc.GlobalRenderMixin", Side.CLIENT, UNIVERSALMODCORE),
+    ItemRenderMixin("umc.ItemRenderMixin", Side.CLIENT, UNIVERSALMODCORE, VANILLA);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;
